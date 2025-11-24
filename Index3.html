@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+
+  <style>
+    :root {
+      --primary: #668bd1;
+      --accent: #002ca7;
+      --dark: #222;
+      --light: #f8f8f8;
+      --radius: 8px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Arial", sans-serif;
+    }
+
+    body {
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    section {
+      padding: 4rem 8%;
+    }
+
+    header {
+      background: white;
+      padding: 1.2rem 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h2 {
+      font-size: 1.6rem;
+      color: var(--primary);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+
+    nav a {
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--primary);
+      transition: 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      transform: scale(1.06);
+    }
+
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      animation: colorChange 3s infinite alternate;
+    }
+
+    @keyframes colorChange {
+      0% { color: #668bd1; }
+      50% { color: #002ca7; }
+      100% { color: #000000; }
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 550px;
+      margin-bottom: 2rem;
+    }
+
+    .hero img {
+      width: 45vw;
+      max-width: 220px;
+      border-radius: 50%;
+      margin-bottom: 2rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .btn {
+      background: var(--primary);
+      padding: 0.8rem 1.6rem;
+      color: white;
+      border-radius: var(--radius);
+      display: inline-block;
+      transition: 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      background: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    #about {
+      background: white;
+      border-radius: var(--radius);
+      margin: 2rem 8%;
+      padding: 3rem;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    #about h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: black;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    #about p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .projects {
+      text-align: center;
+    }
+
+    .projects h2 {
+      font-size: 2rem;
+      color: black;
+      font-weight: 800;
+      margin-bottom: 2rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .project {
+      background: white;
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      transition: 0.3s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+    }
+
+    #contact {
+      text-align: center;
+      background: white;
+      color: var(--dark);
+      border-radius: var(--radius);
+      margin: 2rem 8%;
+      padding: 3rem;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    form {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    input, textarea {
+      padding: 0.8rem;
+      border-radius: var(--radius);
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    form button {
+      background: var(--accent);
+      border: none;
+      padding: 0.8rem;
+      color: white;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: 0.3s ease;
+      font-size: 1rem;
+    }
+
+    form button:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.2rem;
+      background: #ddd;
+      margin-top: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        flex-direction: row;
+        text-align: left;
+        gap: 4rem;
+      }
+
+      .hero img {
+        margin: 0;
+        width: 30vw;
+        max-width: 260px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      header h2 {
+        font-size: 2rem;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>MyPortfolio</h2>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="hero">
+    <img src="https://t4.ftcdn.net/jpg/09/17/12/23/360_F_917122367_kSpdpRJ5Hcmn0s4WMdJbSZpl7NRzwupU.jpg" alt="profile picture">
+    <div>
+      <h1>Hello, I'm Shashank</h1>
+      <p>I'm a web developer who loves building websites and interactive user experiences with HTML, CSS, and JavaScript.</p>
+      <a href="#projects" class="btn">View My Work</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I specialize in front-end development and enjoy creating responsive, user-friendly websites. My goal is to design smooth, modern interfaces while writing clean and efficient code.</p>
+  </section>
+
+  <section id="projects" class="projects">
+    <h2>My Projects</h2>
+    <div class="project-grid">
+      <div class="project">
+        <h3>Project One</h3>
+        <p>A simple responsive website built using HTML.</p>
+      </div>
+      <div class="project">
+        <h3>Project Two</h3>
+        <p>A simple portfolio by using HTML, CSS.</p>
+      </div>
+      <div class="project">
+        <h3>Project Three</h3>
+        <p>A landing page with animations, transitions, and responsive layout.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    
+  </footer>
+
+</body>
+</html>
